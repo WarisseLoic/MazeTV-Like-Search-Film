@@ -1,0 +1,13 @@
+ul li {
+    width: auto;
+    float: left;
+    list-style-type: none;
+}
+
+.home {
+    margin-top: 100px;
+}
+
+.container {
+    margin-top: 300px;
+}

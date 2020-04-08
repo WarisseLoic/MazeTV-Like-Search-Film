@@ -50,18 +50,19 @@ export default class Home extends Component {
         </form>
         <ul className="list">
           {data.map(item => {
+            const name = item.show.name;
             if (item.show.image) {
               return (
                 <li key={item.score}>
-                  <h3>{item.show.name}</h3>
-                  <NavLink to={"/info/".concat(item.show.name)}><img src={item.show.image.medium} /></NavLink>
+                  <h3 className="Name">{name}</h3>
+                  <NavLink to={"/info/".concat(item.show.name)}><img className="Myimg" src={item.show.image.medium} /></NavLink>
                 </li>
               )
             } else {
               return (
                 <li key={item.score}>
-                  <h3>{item.show.name}</h3>
-                  <NavLink to={"/info/".concat(item.show.name)}><img src="./NONE.png" /></NavLink>
+                  <h3 className="Name">{name}</h3>
+                  <NavLink to={"/info/".concat(item.show.name)}><img className="Myimg" src="./NONE.png" /></NavLink>
                 </li>
               )
             }

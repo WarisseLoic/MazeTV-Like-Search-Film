@@ -23,6 +23,7 @@ export default class Info extends Component {
   find_name = () => {
     let to_parse = window.location.pathname;
     const name = to_parse.split('/')
+
     return (name[2]);
   }
   

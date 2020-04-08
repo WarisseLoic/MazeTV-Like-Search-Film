@@ -13,9 +13,10 @@ export default class Info extends Component {
       image : "NONE",
       score : 0,
       language: "NONE",
-      genre: "NONE",
+      genre: [],
       status : "NONE",
       title : "NONE",
+      resume : "NONE",
     }
   }
 
@@ -27,9 +28,12 @@ export default class Info extends Component {
   
   parse_data = (json) => {
     this.setState({
-      image: json[0].show.image.medium,
-      score: json[0].show.score,
+      image: json[0].show.image ? json[0].show.image.medium : "/NONE.png",
+      score: json[0].score,
       title: json[0].show.name,
+      language: json[0].show.language,
+      genre: json[0].show.genre,
+      resume: json[0].show.summary,
     })
   }
 
@@ -59,6 +63,10 @@ export default class Info extends Component {
           <img className="img_film" src={this.state.image}></img>
           <div className="info">
               <h1 className="Title_film">{this.state.title}</h1>
+              <h1>{this.state.language}</h1>
+              <h1>{this.state.resume}</h1>
+              <h1>{this.state.score}</h1>
+              {/* Liste Genre */}
           </div>
         </div>
       )

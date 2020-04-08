@@ -13,6 +13,7 @@ export default class Home extends Component {
       data : [],
       isLoaded: false,
       value: '',
+      img_valid: true,
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,15 +46,26 @@ export default class Home extends Component {
       <div className="home">
         <form onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.value} onChange={this.handleChange} />
-        <input type="submit" value="Envoyer" />
+          <input type="submit" value="Envoyer" />
         </form>
         <ul className="list">
-          {data.map(item => (
-            <li key={item.score}>
-              <h3>{item.show.name}</h3>
-              <NavLink to={"/info/".concat(item.show.name)}><img src={item.show.image.medium} label="test"></img></NavLink>
-            </li>
-          ))}
+          {data.map(item => {
+            if (item.show.image) {
+              return (
+                <li key={item.score}>
+                  <h3>{item.show.name}</h3>
+                  <NavLink to={"/info/".concat(item.show.name)}><img src={item.show.image.medium} /></NavLink>
+                </li>
+              )
+            } else {
+              return (
+                <li key={item.score}>
+                  <h3>{item.show.name}</h3>
+                  <NavLink to={"/info/".concat(item.show.name)}><img src="./NONE.png" /></NavLink>
+                </li>
+              )
+            }
+          })}
         </ul>
       </div>
     )

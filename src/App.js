@@ -5,6 +5,7 @@ import HEADER from "./components/header/header"
 import INFO from "./components/info/info"
 import HOME from "./components/home/home"
 import FOOTER from "./components/footer/footer"
+
 class App extends Component {
   render() {
     return (

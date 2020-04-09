@@ -14,10 +14,44 @@
     grid-row-start: 1;
 }
 
+.Score {
+    grid-row-start: 1;
+}
+
 .info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 150px 150px 150px;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+}
+
+.left_box {
+    position: relative;
+    bottom: 300px;
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+ul li {
+    width: auto;
+    float: left;
+    list-style-type: none;
+}
+
+.my_resume {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.Casting_title {
+    grid-column: 2;
+}
+
+.Cast {
+    grid-row-start: 5;
+    width: auto;
+    float: left;
+    list-style-type: none;
 }

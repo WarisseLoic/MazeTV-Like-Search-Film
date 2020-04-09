@@ -99,7 +99,7 @@ export default class Info extends Component {
           <img className="img_film" src={this.state.image} alt="Image_film"></img>
           <div className="info">
             <h1 className="Title_film">{this.state.title}</h1>
-            <h1 className="Score">Score : {this.state.score}</h1>
+            {data[0].show.rating.average ? <h1 className="Score">Note : {data[0].show.rating.average}</h1> : <h1> Note : Invalid </h1>}
             <div className="left_box">
               <h1>{this.state.language}: <img src={flags} alt="Language Flags"/></h1>
               <h1>Genres : </h1>
@@ -109,6 +109,7 @@ export default class Info extends Component {
             </div>
             <p className="my_resume">{this.state.resume}</p>
             <h2 className="Casting_title"> Casting : </h2>
+            {console.log(data[0].show.rating.average)}
           </div>
             <ul className="Cast">
             {data_char.map(item => {
@@ -123,7 +124,7 @@ export default class Info extends Component {
                 return (
                   <li> 
                     <h2> {item.person.name} </h2>
-                    <img src="/NONE.png" alt="NONE"/>
+                    <img src="/NONE.png"/>
                   </li>
                 )
               }

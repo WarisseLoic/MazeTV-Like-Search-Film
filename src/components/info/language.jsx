@@ -54,7 +54,7 @@ export const language_exist = [
 	"Slovak", "sk",
 	"Slovenian", "sl",
 	"Albanian", "sq",
-	"Swedish", "sv",
+	"Swedish", "se",
 	"Swahili", "sw",
 	"Thai", "th",
 	"Ukrainian", "uk",

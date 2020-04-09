@@ -1,8 +1,7 @@
 import React from 'react'
 import './home.css';
 import { Component } from 'react';
-import { BrowserRouter as Router, NavLink} from 'react-router-dom';
-import { CircularProgress } from '@material-ui/core';
+import { NavLink} from 'react-router-dom';
 
 const API = 'https://api.tvmaze.com/search/shows?q=';
 
@@ -40,7 +39,7 @@ export default class Home extends Component {
   }
 
   render() {
-    var {isLoaded, data} = this.state;
+    var {data} = this.state;
 
     return (
       <div className="home">
@@ -55,14 +54,14 @@ export default class Home extends Component {
               return (
                 <li key={item.score}>
                   <h3 className="Name">{name}</h3>
-                  <NavLink to={"/info/".concat(item.show.name)}><img className="Myimg" src={item.show.image.medium} /></NavLink>
+                  <NavLink to={"/info/".concat(item.show.name)}><img className="Myimg" src={item.show.image.medium} alt={item.show.image.medium}/></NavLink>
                 </li>
               )
             } else {
               return (
                 <li key={item.score}>
                   <h3 className="Name">{name}</h3>
-                  <NavLink to={"/info/".concat(item.show.name)}><img className="Myimg" src="./NONE.png" /></NavLink>
+                  <NavLink to={"/info/".concat(item.show.name)}><img className="Myimg" src="./NONE.png" alt="NONE"/></NavLink>
                 </li>
               )
             }

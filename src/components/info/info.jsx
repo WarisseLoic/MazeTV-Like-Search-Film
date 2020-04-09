@@ -1,7 +1,6 @@
 import React from 'react'
 import './info.css';
 import { Component } from 'react';
-import { Box, Button,Container } from '@material-ui/core';
 import language_exist from './language'
 
 const API = 'https://api.tvmaze.com/search/shows?q=';
@@ -29,7 +28,7 @@ export default class Info extends Component {
   }
 
   get_data_char = () => {
-    fetch("http://api.tvmaze.com/shows/" + this.state.id + "/cast")
+    fetch(API_CAST + this.state.id + "/cast")
     .then(res => res.json())
     .then(json => {
       this.setState({
@@ -78,7 +77,7 @@ export default class Info extends Component {
   set_flagscountry = () => {
     var { language } = this.state;
     language_exist.map((item, index) => {
-      if (item == language) {
+      if (item === language) {
         this.setState({
           flags: API_FLAGS + language_exist[index + 1] + "/flat/64.png"
         })
@@ -91,18 +90,18 @@ export default class Info extends Component {
   }
   
   render() {
-    var {isLoaded, data, status, data_premiere, flags, id, data_char} = this.state;
+    var {isLoaded, data, status, data_premiere, flags, data_char} = this.state;
     if (!isLoaded) {
       return <div><h1>Loading</h1></div>;
     } else {
       return (
         <div>
-          <img className="img_film" src={this.state.image}></img>
+          <img className="img_film" src={this.state.image} alt="Image_film"></img>
           <div className="info">
             <h1 className="Title_film">{this.state.title}</h1>
             <h1 className="Score">Score : {this.state.score}</h1>
             <div className="left_box">
-              <h1>{this.state.language}: <img src={flags} /></h1>
+              <h1>{this.state.language}: <img src={flags} alt="Language Flags"/></h1>
               <h1>Genres : </h1>
               {data[0].show.genres.map(item => <li key={item}>{item}</li>)}
               <h1>Status : {status}</h1>
@@ -112,7 +111,23 @@ export default class Info extends Component {
             <h2 className="Casting_title"> Casting : </h2>
           </div>
             <ul className="Cast">
-              {data_char.map(item => <li> <h2> {item.person.name} </h2> <img src={item.person.image.medium}/> </li>)}
+            {data_char.map(item => {
+              if (item.person.image) {
+                return (
+                <li> 
+                  <h2> {item.person.name} </h2>
+                  <img src={item.person.image.medium} alt="actor"/>
+                </li>
+                )
+              } else {
+                return (
+                  <li> 
+                    <h2> {item.person.name} </h2>
+                    <img src="/NONE.png" alt="NONE"/>
+                  </li>
+                )
+              }
+            })}
             </ul>
         </div>
       )

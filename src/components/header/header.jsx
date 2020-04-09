@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './header.css';
-import { AppBar, IconButton, Tab, Toolbar, Typography} from '@material-ui/core';
-import { NavLink, Link } from 'react-router-dom';
+import { AppBar, IconButton, Tab, Toolbar} from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export default class header extends Component {
   render () {

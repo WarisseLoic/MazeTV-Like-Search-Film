@@ -1,4 +1,4 @@
-This project is a Technical test in reactJs.
+This project, is a "Hello World" of Reactjs & MaterialUI
 
 Npm install && npm start
 
